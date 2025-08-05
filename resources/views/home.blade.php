@@ -23,9 +23,9 @@
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="d-grid">
-                            <a href="#" class="btn btn-outline-primary p-4">
+                            <a href="{{ route('sell') }}" class="btn btn-outline-primary p-4">
                                 <i class="fas fa-database d-block mb-2 fa-2x"></i>
-                                Adatok böngészése
+                                Eladás
                             </a>
                         </div>
                     </div>

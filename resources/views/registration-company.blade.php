@@ -88,7 +88,20 @@
                         <label for="password_confirmation" class="form-label">Jelszó megerősítése</label>
                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                     </div>
-
+                    <div class="col-12 mt-4">
+                        <label class="form-label d-block">Regisztráció típusa</label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role" class="form-check-input" id="role_buyer" value="buyer" checked>
+                            <label class="form-check-label" for="role_buyer">Vásárló</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role" class="form-check-input" id="role_seller" value="seller">
+                            <label class="form-check-label" for="role_seller">Eladó</label>
+                        </div>
+                        @error('role')
+                            <div class="text-danger mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="col-12 mt-4">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="terms" required>

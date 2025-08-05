@@ -6,6 +6,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UploadController;
+
+
 
 Route::post('/register-user', [UserController::class, 'storeUser'])->name('register.user');
 Route::post('/register-company', [UserController::class, 'storeCompany'])->name('register.company');
@@ -33,6 +36,9 @@ Route::middleware(['auth'])->group(function () {
         return view('home');
     })->name( 'home');
 });
+Route::get('/sell', function () {
+    return view('sell');
+})->name('sell');
 
 Route::get('/email/verify/{id}/{token}', [UserController::class, 'verifyEmail'])->name('verification.verify');
 Route::get('/email/verify', [UserController::class, 'showVerificationNotice'])->name('verification.notice');
@@ -42,3 +48,6 @@ Route::get('/forgotten-password', [PasswordController::class, 'showForgotPasswor
 Route::post('/forgotten-password', [PasswordController::class, 'sendPasswordResetLink'])->name('password.email');
 Route::get('/password-reset/{email}/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('password.reset');
 Route::post('/password-reset', [PasswordController::class, 'resetPassword'])->name('password.update');
+
+
+Route::post('/upload', [UploadController::class, 'store'])->name('upload');

@@ -28,6 +28,7 @@ class UserController extends Controller
             'szemelyigszam' => 'required|string|max:20',
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required|string|min:8',
+            'role' => 'required|in:buyer,seller',
         ]);
         $verificationToken = Str::random(64);
         unset($validated['password_confirmation']);
@@ -43,6 +44,7 @@ class UserController extends Controller
             'cegjegyzekszam' => null,
             'tipus' => 'p',
             'password' => Hash::make($validated['password']),
+            'role' => $validated['role'],
             'verification_token' => $verificationToken,
         ];
         $userId = DB::table('users')->insertGetId($userData);
@@ -67,6 +69,7 @@ class UserController extends Controller
             'cegjegyzekszam' => 'required|string|max:12',
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required|string|min:8',
+            'role' => 'required|in:buyer,seller',
         ]);
         $verificationToken = Str::random(64);
         unset($validated['password_confirmation']);
@@ -82,6 +85,7 @@ class UserController extends Controller
             'cegjegyzekszam' => $validated['cegjegyzekszam'],
             'tipus' => 'c',
             'password' => Hash::make($validated['password']),
+            'role' => $validated['role'],
             'verification_token' => $verificationToken,
         ];
         $userId = DB::table('users')->insertGetId($userData);

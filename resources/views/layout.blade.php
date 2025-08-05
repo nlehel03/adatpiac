@@ -11,6 +11,8 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Egyedi CSS -->
+
+    @yield('styles')
     <style>
         /* Alapstílus */
         body {
@@ -224,6 +226,7 @@
 
     <!-- JavaScript (Bootstrap és egyéb) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @vite(['resources/js/app.js'])
     <script>
         // Egyéni szkriptek
         document.addEventListener('DOMContentLoaded', function() {
@@ -234,5 +237,6 @@
             });
         });
     </script>
+    @yield('scripts')
 </body>
 </html>
