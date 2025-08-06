@@ -26,7 +26,17 @@
                 <h4 class="mb-0">Új tábla eladása</h4>
             </div>
             <div class="card-body p-4">
-                <form action="{{ route('sell') }}" method="POST" enctype="multipart/form-data">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <form action="{{ route('dataset.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row mb-3">

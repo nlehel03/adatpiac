@@ -51,3 +51,4 @@ Route::post('/password-reset', [PasswordController::class, 'resetPassword'])->na
 
 
 Route::post('/upload', [UploadController::class, 'store'])->name('upload');
+Route::post('/dataset/store', [UploadController::class, 'store'])->name('dataset.store');
